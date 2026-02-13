@@ -14,6 +14,12 @@ openBtn.addEventListener('click',()=>{
 });
 
 yesBtn.addEventListener('click', () => {
+    confetti({
+        particleCount: 150, // How many pieces of confetti
+        spread: 70,         // How wide they fly
+        origin: { y: 0.6 }  // Where they start from (0.6 is slightly below the middle)
+    });
+    
     questionPage.classList.add('hidden');
     successPage.classList.remove('hidden');
 });
