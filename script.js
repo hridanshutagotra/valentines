@@ -41,3 +41,32 @@ noBtn.addEventListener('touchstart',(e)=>{
     e.preventDefault();
     moveButton();
 });
+
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-float');
+    
+    // Randomly pick a heart emoji
+    const heartTypes = ['❤️', '💖', '💗', '💓', '🌸'];
+    heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+    
+    // Randomize the horizontal position
+    heart.style.left = Math.random() * 100 + "vw";
+    
+    // Randomize the size (between 10px and 30px)
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    
+    // Randomize the animation duration (between 3s and 6s)
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    
+    document.body.appendChild(heart);
+    
+    // Remove the heart from the DOM after it finishes floating up
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+// Start creating hearts every 300ms
+setInterval(createHeart, 300);
