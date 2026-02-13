@@ -73,3 +73,27 @@ button{
     font-size: 80px;
     margin-bottom: 10px;
 }
+
+/* The heart element itself */
+.heart-float {
+    position: fixed;
+    bottom: -10px; /* Start just off-screen */
+    font-size: 20px;
+    color: #ff4d6d;
+    user-select: none;
+    pointer-events: none; /* So she can't click the hearts instead of the buttons */
+    z-index: -1; /* Keep them behind the card */
+    animation: floatUp linear forwards;
+}
+
+/* The upward floating movement */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg); /* Float to the top and spin */
+        opacity: 0;
+    }
+}
